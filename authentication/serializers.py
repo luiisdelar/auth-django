@@ -26,7 +26,7 @@ class SingUpSerializer(serializers.Serializer):
         """Handle user creation"""
         user = User.objects.create(**data)
         user.set_password(data['password'])
-
+        user.is_staff = True
         user.save()
 
         return user   

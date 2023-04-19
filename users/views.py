@@ -1,7 +1,6 @@
 from .models import User
-from rest_framework import generics, permissions
+from rest_framework import generics
 from users.serializers import UserSerializer
-
 
 class UserList(generics.ListCreateAPIView):
     """
@@ -9,6 +8,7 @@ class UserList(generics.ListCreateAPIView):
     params: predefined class 
     """
     serializer_class = UserSerializer
+    permission_classes = ''
     
     def get_queryset(self):
         """

@@ -7,7 +7,8 @@ from rest_framework import status
 class Login(APIView):
     """User login API view"""
     serializer_class = LoginSerializer
-
+    permission_classes = ''
+    
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data = request.data)
         if serializer.is_valid(raise_exception = True):
@@ -16,6 +17,7 @@ class Login(APIView):
 class SingUp(APIView):
     """SignUp view"""
     serializer_class = SingUpSerializer
+    permission_classes = ''
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data = request.data)
